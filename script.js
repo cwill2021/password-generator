@@ -18,6 +18,17 @@ function generatePassword() {
         var confirmLength = (prompt("How many characters would you like your password to contain?"));
         } 
 
+        var confirmSpecial = confirm("Click OK to include special characters");
+        var confirmNumeric = confirm("Click OK to include numeric characters");    
+        var comfirmLower = confirm("Click OK to include lowercase characters");
+        var confirmUpper = confirm("Click OK to include uppercase characters");
+        while(confirmUpper === false && comfirmLower === false && confirmSpecial === false && confirmNumeric === false) {
+            alert("You must choose at least one parameter");
+            var confirmSpecial = confirm("Click OK to include special characters");
+            var confirmNumeric = confirm("Click OK to include numeric characters");    
+            var comfirmLower = confirm("Click OK to include lowercase characters");
+            var confirmUpper = confirm("Click OK to include uppercase characters");   
+    }
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
