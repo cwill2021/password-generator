@@ -29,6 +29,37 @@ function generatePassword() {
             var comfirmLower = confirm("Click OK to include lowercase characters");
             var confirmUpper = confirm("Click OK to include uppercase characters");   
     }
+
+
+    var passwordCharacters = []
+      
+    if (confirmSpecial) {
+      passwordCharacters = passwordCharacters.concat(specialChar)
+    }
+
+    if (confirmNumeric) {
+      passwordCharacters = passwordCharacters.concat(number)
+    }
+      
+    if (comfirmLower) {
+      passwordCharacters = passwordCharacters.concat(lowercase)
+    }
+
+    if (confirmUpper) {
+      passwordCharacters = passwordCharacters.concat(uppercase)
+    }
+
+      console.log(passwordCharacters)
+
+      // Empty string to be filled based on for loop selecting random characters from the array
+      var randomPassword = ""
+      
+      for (var i = 0; i < confirmLength; i++) {
+        randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+        console.log(randomPassword)
+      }
+      return randomPassword;
+}
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
